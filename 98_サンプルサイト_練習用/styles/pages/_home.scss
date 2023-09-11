@@ -1,0 +1,67 @@
+@use "../globals" as *;
+@use "../parts/common" as *;
+
+.houses {
+    @extend .content-width;
+    @extend .mb-lg;
+
+    &_inner {
+        @extend .flex;
+    }
+
+    &_title {
+        @extend .mb-sm;
+        @extend .font-lr;
+    }
+
+    &_item {
+        @include mq(md) {
+            flex-basis: 50%;
+        }
+        @include mq(lg) {
+            margin-bottom: 60px;
+        }
+    }
+
+    &_btn {
+        text-align: center;
+        flex-basis: 100%;
+    }
+}
+
+.popular {
+    &_header {
+        @extend .content-width;
+    }
+
+    &_inner {}
+
+    &_container {
+        @extend .content-width;
+        @extend .flex;
+        justify-content: space-between;
+    }
+
+    &_item {
+        @include mq(md) {
+            flex-basis: 47%;
+        }
+    }
+
+    &_title {}
+
+    &_img {
+        height: 150px;
+
+        & > img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &_btn {
+        text-align: center;
+        flex-basis: 100%;
+    }
+}
