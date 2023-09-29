@@ -643,20 +643,20 @@ img {
   vertical-align: bottom;
 }
 
-.mb-sm, .houses_title, .sub-title {
+.mb-sm, .travel_img, .houses_title, .popular_title, .sub-title {
   margin-bottom: 16px !important;
 }
 
-.mb-lg, .houses {
+.mb-lg, .travel, .houses, .popular_btn {
   margin-bottom: 80px !important;
 }
 @media screen and (min-width: 960px) {
-  .mb-lg, .houses {
+  .mb-lg, .travel, .houses, .popular_btn {
     margin-bottom: 150px !important;
   }
 }
 
-.pb-sm {
+.pb-sm, .travel_texts {
   padding-bottom: 16px !important;
 }
 
@@ -669,18 +669,18 @@ img {
   }
 }
 
-.content-width, .houses, .popular_header, .popular_container {
+.content-width, .travel, .houses, .popular_header, .popular_container {
   width: 90%;
   margin: 0 auto;
   max-width: 1070px;
 }
 
-.flex, .houses_inner, .popular_container {
+.flex, .travel_inner, .houses_inner, .popular_container {
   display: flex;
   flex-direction: column;
 }
 @media screen and (min-width: 600px) {
-  .flex, .houses_inner, .popular_container {
+  .flex, .travel_inner, .houses_inner, .popular_container {
     flex-direction: row;
     flex-wrap: wrap;
   }
@@ -704,11 +704,11 @@ img {
   }
 }
 
-.font-md {
+.font-md, .popular_title {
   font-size: 17px;
 }
 @media screen and (min-width: 960px) {
-  .font-md {
+  .font-md, .popular_title {
     font-size: 19px;
   }
 }
@@ -741,6 +741,96 @@ img {
   color: #535353;
 }
 
+.travel_inner {
+  position: relative;
+  z-index: 0;
+  justify-content: space-between;
+  background: #eaebe6;
+  padding: 15px;
+}
+@media screen and (min-width: 600px) {
+  .travel_inner {
+    padding: 50px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .travel_inner {
+    padding: 50px 150px;
+  }
+}
+.travel_img {
+  height: 300px;
+  box-shadow: inset 0 0 30px black;
+}
+@media screen and (min-width: 600px) {
+  .travel_img {
+    flex-basis: 47%;
+  }
+}
+@media screen and (min-width: 960px) {
+  .travel_img {
+    height: 400px;
+  }
+}
+.travel_img > img {
+  position: relative;
+  z-index: -1;
+  opacity: 1;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+@media screen and (min-width: 600px) {
+  .travel_texts {
+    display: flex;
+    align-items: flex-end;
+    flex-basis: 47%;
+  }
+}
+.travel_texts.inview .travel_title::before {
+  animation-name: scaleX;
+  animation-duration: 0.3s;
+  animation-timing-function: ease;
+  animation-delay: 1.5s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+}
+.travel_title {
+  position: relative;
+}
+.travel_title::before {
+  display: none;
+  position: absolute;
+  content: "";
+  height: 1px;
+  width: 100px;
+  top: 50%;
+  left: -120px;
+  background-color: black;
+  transform: scaleX(0);
+  transform-origin: right;
+}
+@media screen and (min-width: 960px) {
+  .travel_title::before {
+    display: block;
+  }
+}
+@media screen and (min-width: 960px) {
+  .travel_description {
+    margin-bottom: 40px;
+  }
+}
+
+@keyframes scaleX {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
 @media screen and (min-width: 600px) {
   .houses_item {
     flex-basis: 50%;
@@ -756,7 +846,21 @@ img {
   flex-basis: 100%;
 }
 
+.popular_inner {
+  position: relative;
+}
+.popular_inner::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 90%;
+  width: 100%;
+  background: #eaebe6;
+}
 .popular_container {
+  position: relative;
+  z-index: 2;
   justify-content: space-between;
 }
 @media screen and (min-width: 600px) {
@@ -764,8 +868,24 @@ img {
     flex-basis: 47%;
   }
 }
+@media screen and (min-width: 960px) {
+  .popular_item {
+    flex-basis: 25%;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .popular_item {
+    flex-basis: 23%;
+  }
+}
 .popular_img {
   height: 150px;
+  margin-bottom: 5px;
+}
+@media screen and (min-width: 960px) {
+  .popular_img {
+    height: 335px;
+  }
 }
 .popular_img > img {
   width: 100%;
